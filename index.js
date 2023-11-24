@@ -29,7 +29,10 @@ async function run() {
 
         // featured related apis
         app.get('/featured', async (req, res) => {
-            const result = await featuredCollection.find().toArray()
+
+            const sortDate = {upload_date:'desc'}
+
+            const result = await featuredCollection.find().sort(sortDate).toArray()
             res.send(result)
         })
 
