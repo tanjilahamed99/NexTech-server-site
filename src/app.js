@@ -6,9 +6,11 @@ const mongoose =require('mongoose')
 const port = process.env.PORT || 5000
 require("dotenv").config();
 const featured = require('./routes/featured')
+const updatedFeatured = require('./routes/upFeaturedRoute')
 
 useMiddleWere(app)
 app.use(featured)
+app.use(updatedFeatured)
 
 
 app.get('/health', (req, res) => {
