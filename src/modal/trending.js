@@ -1,5 +1,5 @@
 const { model, Schema } = require("mongoose");
-const FeaturedSchema = new Schema({
+const TrendingSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -16,7 +16,7 @@ const FeaturedSchema = new Schema({
         type: Date,
         default: Date,
     },
-    upvote: {
+    upVote: {
         type: Number,
         default: 0,
     },
@@ -27,6 +27,6 @@ const FeaturedSchema = new Schema({
 })
 
 
-const Featured = model("Featured", FeaturedSchema,"featured")
+const Trending = model("Trending", TrendingSchema,"trending")
 
-module.exports = Featured
+module.exports = Trending

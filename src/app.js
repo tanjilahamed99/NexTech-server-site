@@ -7,10 +7,14 @@ const port = process.env.PORT || 5000
 require("dotenv").config();
 const featured = require('./routes/featured')
 const updatedFeatured = require('./routes/upFeaturedRoute')
+const findOneFeatured = require('./routes/findOneFeatured')
+const trending = require('./routes/Trending')
 
 useMiddleWere(app)
 app.use(featured)
 app.use(updatedFeatured)
+app.use(findOneFeatured)
+app.use(trending)
 
 
 app.get('/health', (req, res) => {
