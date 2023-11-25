@@ -3,7 +3,7 @@ const app = express()
 const port = process.env.PORT || 5000
 const cors = require('cors')
 require("dotenv").config();
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 
 
 app.use(express.json())
@@ -29,13 +29,25 @@ async function run() {
 
         // featured related apis
         app.get('/featured', async (req, res) => {
-
-            const sortDate = {upload_date:'desc'}
-
+            const sortDate = { upload_date: 'desc' }
             const result = await featuredCollection.find().sort(sortDate).toArray()
             res.send(result)
         })
 
+
+        app.patch('/featured/:id', async (req, res) => {
+            const id = req.params.id
+            const query = { _id: new ObjectId(id) }
+            const find = await featuredCollection.findOne(query)
+            const newVote = find.upvote + 1
+            const updateDoc = {
+                $set: {
+                    upvote: newVote
+                }
+            }
+            const result = await featuredCollection.updateOne(query,updateDoc)
+            res.send(result)
+        })
 
 
 
