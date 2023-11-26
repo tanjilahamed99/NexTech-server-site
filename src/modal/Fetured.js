@@ -24,9 +24,12 @@ const FeaturedSchema = new Schema({
         type: [String],
         required: true,
     },
+    reported: {
+        type:Boolean
+    }
 })
 
 
-const Featured = model("Featured", FeaturedSchema,"featured")
+const Featured = model("Featured", FeaturedSchema, "featured")
 
 module.exports = Featured
