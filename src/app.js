@@ -2,19 +2,20 @@ const express = require('express');
 const useMiddleWere = require('./middleWers/useMiddleWere');
 const connectDB = require('./db/cannectDB/cannectDB');
 const app = express()
-const mongoose =require('mongoose')
 const port = process.env.PORT || 5000
 require("dotenv").config();
 const featured = require('./routes/featured')
 const updatedFeatured = require('./routes/upFeaturedRoute')
 const findOneFeatured = require('./routes/findOneFeatured')
 const trending = require('./routes/Trending')
+const totalTrendingData = require('./routes/totalTrending')
 
 useMiddleWere(app)
 app.use(featured)
 app.use(updatedFeatured)
 app.use(findOneFeatured)
 app.use(trending)
+app.use(totalTrendingData)
 
 
 app.get('/health', (req, res) => {
