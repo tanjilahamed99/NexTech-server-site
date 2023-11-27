@@ -14,6 +14,9 @@ const updateTrending = require('./routes/upTrending')
 const findOneTrending = require('./routes/findOneTrending')
 const trendingReport =require('./routes/trendingReport')
 const featuredReview = require('./routes/review/featuredReview')
+const findFeatureReview = require('./routes/review/getFeaturedReview')
+const trendingReview = require('./routes/review/trendingReview')
+const findTrendingReview = require('./routes/review/getTrendingReview')
 
 useMiddleWere(app)
 app.use(featured)
@@ -26,6 +29,9 @@ app.use(updateTrending)
 app.use(findOneTrending)
 app.use(trendingReport)
 app.use(featuredReview)
+app.use(findFeatureReview)
+app.use(trendingReview)
+app.use(findTrendingReview)
 
 
 app.get('/health', (req, res) => {

@@ -1,7 +1,7 @@
-const findOneTrendingCon = require('../../api/findOneTrending/controller')
+const trendingReviewCon = require('../../../api/review/trendingReview/controller')
 
 const router = require('express').Router()
 
-router.get('/trending/:id',findOneTrendingCon)
+router.post('/trendingReview',trendingReviewCon)
 
 module.exports = router

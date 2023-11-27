@@ -8,12 +8,16 @@ const TrendingReviewSchema = new Schema({
         type: String,
         required: true,
     },
+    desc: {
+        type: String,
+        required: true,
+    },
     userPhoto: {
         type: String,
         required: true,
     },
     featuredId: {
-        type: Number,
+        type: String,
         default: 0,
     },
     rating: {

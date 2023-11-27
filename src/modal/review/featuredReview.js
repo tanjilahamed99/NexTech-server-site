@@ -8,6 +8,10 @@ const FeaturedReviewSchema = new Schema({
         type: String,
         required: true,
     },
+    desc: {
+        type: String,
+        required: true,
+    },
     userPhoto: {
         type: String,
         required: true,
