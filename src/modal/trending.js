@@ -24,9 +24,12 @@ const TrendingSchema = new Schema({
         type: [String],
         required: true,
     },
+    reported: {
+        type: Boolean
+    }
 })
 
 
-const Trending = model("Trending", TrendingSchema,"trending")
+const Trending = model("Trending", TrendingSchema, "trending")
 
 module.exports = Trending
