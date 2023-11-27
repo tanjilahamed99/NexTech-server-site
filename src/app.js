@@ -21,6 +21,7 @@ const findTrendingReview = require('./routes/review/getTrendingReview')
 const users = require('./routes/AllUserRoutes/users')
 const updateUser = require('./routes/AllUserRoutes/updateUser')
 const getUser = require('./routes/AllUserRoutes/getUsers')
+const postFeatured = require('./routes/postFeatured')
 
 useMiddleWere(app)
 app.use(featured)
@@ -39,6 +40,7 @@ app.use(findTrendingReview)
 app.use(users)
 app.use(updateUser)
 app.use(getUser)
+app.use(postFeatured)
 
 
 app.get('/health', (req, res) => {

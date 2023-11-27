@@ -1,10 +1,26 @@
 const { model, Schema } = require("mongoose");
 const FeaturedSchema = new Schema({
+    userName: {
+        type: String,
+        required: true,
+    },
+    userPhoto: {
+        type: String,
+        required: true,
+    },
+    userEmail: {
+        type: String,
+        required: true,
+    },
     name: {
         type: String,
         required: true,
     },
     brand: {
+        type: String,
+        required: true,
+    },
+    desc: {
         type: String,
         required: true,
     },
@@ -25,8 +41,12 @@ const FeaturedSchema = new Schema({
         required: true,
     },
     reported: {
-        type:Boolean
-    }
+        type: Boolean
+    },
+    status: {
+        type: String
+    },
+    
 })
 
 

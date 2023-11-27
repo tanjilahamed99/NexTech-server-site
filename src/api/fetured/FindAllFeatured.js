@@ -1,7 +1,10 @@
 const Featured = require("../../modal/Fetured")
 
 const findAllFeatured = async () => {
-    const cursor =await Featured.find().sort({ upload_date: -1 });
+
+    const query = { status: 'approved' }
+
+    const cursor = await Featured.find(query).sort({ upload_date: -1 });
     return cursor
 }
 
