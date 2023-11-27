@@ -22,6 +22,7 @@ const users = require('./routes/AllUserRoutes/users')
 const updateUser = require('./routes/AllUserRoutes/updateUser')
 const getUser = require('./routes/AllUserRoutes/getUsers')
 const postFeatured = require('./routes/postFeatured')
+const findFeaturedByEmail = require('./routes/getFeaturedMyEmail')
 
 useMiddleWere(app)
 app.use(featured)
@@ -41,6 +42,7 @@ app.use(users)
 app.use(updateUser)
 app.use(getUser)
 app.use(postFeatured)
+app.use(findFeaturedByEmail)
 
 
 app.get('/health', (req, res) => {
