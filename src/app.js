@@ -10,6 +10,7 @@ const findOneFeatured = require('./routes/findOneFeatured')
 const trending = require('./routes/Trending')
 const totalTrendingData = require('./routes/totalTrending')
 const reportFeature = require('./routes/FeaturedReport')
+const updateTrending = require('./routes/upTrending')
 
 useMiddleWere(app)
 app.use(featured)
@@ -18,6 +19,7 @@ app.use(findOneFeatured)
 app.use(trending)
 app.use(totalTrendingData)
 app.use(reportFeature)
+app.use(updateTrending)
 
 
 app.get('/health', (req, res) => {
