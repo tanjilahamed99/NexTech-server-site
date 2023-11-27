@@ -1,14 +1,17 @@
-const Featured = require("../../modal/Fetured");
+const Users = require("../../modal/users/user");
 
-const updateVote = async (id, newUpvote) => {
+const updateUser = async (email) => {
 
-    const updatedFeatured = await Featured.findOneAndUpdate(
-        { _id: id },
-        { $set: { upvote: newUpvote } },
-        { new: true }
-    );
+    const query = { email: email }
+    const updateDoc = {
+        $set: {
+            status: true
+        }
+    }
 
-    return updatedFeatured;
+    const updatedUser = await Users.updateOne(query,updateDoc)
+
+    return updatedUser;
 }
 
-module.exports = updateVote
+module.exports = updateUser

@@ -1,15 +1,15 @@
-const updateVote = require("./upFeaturedInfo");
+const updateUser = require("./updateuser");
 
-const updateUser = async (req, res) => {
+
+const updateUserCon = async (req, res) => {
     const email = req.body.email
-    console.log(email)
-    // try {
-    //     const updatedFeatured = await ();
-    //     res.send(updatedFeatured);
-    // } catch (error) {
-    //     console.error(error);
-    //     res.status(500).send('Internal Server Error');
-    // }
+    try {
+        const updatedFeatured = await updateUser(email);
+        res.send(updatedFeatured);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
 };
 
-module.exports = updateUser
+module.exports = updateUserCon
