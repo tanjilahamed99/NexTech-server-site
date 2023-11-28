@@ -43,6 +43,9 @@ const FeaturedSchema = new Schema({
     reported: {
         type: Boolean
     },
+    featured: {
+        type: Boolean
+    },
     status: {
         type: String
     },
