@@ -1,6 +1,7 @@
 const express = require('express');
 const useMiddleWere = require('./middleWers/useMiddleWere');
 const connectDB = require('./db/cannectDB/cannectDB');
+const jwt = require('jsonwebtoken')
 require("dotenv").config();
 const stripe = require('stripe')(process.env.STRIPE_KEY)
 const app = express()
@@ -32,11 +33,15 @@ const deleteFeature = require('./routes/AllFeatured/deleteFeatured')
 const getAllUsers = require('./routes/users/getAllUsers')
 const makeAdmin = require('./routes/users/makeAdmin')
 const makeModerator = require('./routes/users/makeModerator')
+const isAdmin = require('./routes/users/isAdmin')
+const statistic = require('./routes/statistic')
 
 useMiddleWere(app)
 app.use(featured)
+app.use(statistic)
 app.use(updateAllFeaturedStatus)
 app.use(deleteFeature)
+app.use(isAdmin)
 app.use(makeAdmin)
 app.use(makeModerator)
 app.use(getAllUsers)
@@ -67,6 +72,13 @@ app.get('/health', (req, res) => {
     res.send('welcome to my nexTech server ')
 })
 
+app.post('/jwt', (req, res) => {
+    const email = req.body
+    const token = jwt.sign(email, process.env.TOKEN_SECRET, { expiresIn: '5h' })
+    return res.send({ token })
+})
+
+
 app.post("/create-payment-intent", async (req, res) => {
 
     const { price } = req.body;
@@ -96,11 +108,5 @@ app.use((err, req, res, next) => {
     })
 })
 
-const main = async () => {
-    await connectDB()
-    app.listen(port, () => {
-        console.log(`app start on  port ${port}`)
-    })
-}
 
-main()
+module.exports = app
