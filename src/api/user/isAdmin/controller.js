@@ -1,11 +1,9 @@
-const isAdmin = require("./isAdmin");
-
-
+const userRole = require("./userRole");
 
 const isAdminCon = async (req, res) => {
     const email = req.params.email
     try {
-        const updatedFeatured = await isAdmin(email);
+        const updatedFeatured = await userRole(email);
         res.send(updatedFeatured);
     } catch (error) {
         console.error(error);
