@@ -2,6 +2,7 @@ const postBookmark = require("./postBookmark");
 
 const postBookmarkCon = async (req, res) => {
     const newBookmark = req.body
+    console.log(newBookmark)
     try {
         const allFeatured = await postBookmark(newBookmark);
         res.send(allFeatured);
