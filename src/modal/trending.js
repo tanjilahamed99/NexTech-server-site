@@ -13,8 +13,7 @@ const TrendingSchema = new Schema({
         required: true,
     },
     upload_date: {
-        type: Date,
-        default: Date,
+        type: Date
     },
     upVote: {
         type: Number,

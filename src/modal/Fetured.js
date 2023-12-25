@@ -29,8 +29,7 @@ const FeaturedSchema = new Schema({
         required: true,
     },
     upload_date: {
-        type: Date,
-        default: Date,
+        type: Date
     },
     upvote: {
         type: Number,
