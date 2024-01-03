@@ -85,7 +85,7 @@ app.use(AllFeaturedData)
 
 
 app.get('/health', (req, res) => {
-    res.send('welcome to my nexTech server ')
+    res.send('welcome to my nexTech server site ')
 })
 
 app.post('/jwt', (req, res) => {
